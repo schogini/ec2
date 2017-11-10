@@ -1,0 +1,6 @@
+#!/bin/bash
+
+apt-get update 
+apt-get install -y apache2
+sudo /etc/init.d/apache2 restart
+echo "New Hello World!" > /var/www/html/index.html

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+apt-get update 
+apt-get install -y apache2
+apt-get install -y git
+#apt-get install mysql-server
+#apt-get install -y php libapache2-mod-php
+
+#sudo nano /etc/apache2/mods-enabled/dir.conf
+#<IfModule mod_dir.c>
+#    DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
+#</IfModule>
+
+sudo /etc/init.d/apache2 restart
+
+#rm -fr /var/www/html
+
+#git clone https://github.com/schogini/customweb.git /var/www/html
+
+#echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+echo "New Hello World!" > /var/www/html/index.html

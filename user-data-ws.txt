@@ -1,0 +1,43 @@
+#!/bin/bash
+#aws ec2 run-instances --image-id ami-16d4986e --user-data '#!/bin/bash 
+#echo Sree >> /root/test.txt'
+#aws ec2 run-instances --user-data file:///full/path/to/my_script
+
+#apt-get install -y awscli
+#export AWS_ACCESS_KEY_ID=your_access_key_id_here
+#export AWS_SECRET_ACCESS_KEY=your_secret_access_key_here
+#aws cp s3://test-bucket/something /local/directory/
+
+#yum update -y
+#yum install -y httpd24 php56 mysql55-server php56-mysqlnd aws-cli
+#service httpd start
+#chkconfig httpd on
+#groupadd www
+#usermod -a -G www ec2-user
+#chown -R root:www /var/www
+#chmod 2775 /var/www
+#find /var/www -type d -exec chmod 2775 {} +
+#find /var/www -type f -exec chmod 0664 {} +
+
+apt-get update 
+apt-get install -y apache2
+#apt-get install mysql-server
+apt-get install -y php libapache2-mod-php
+
+sudo nano /etc/apache2/mods-enabled/dir.conf
+<IfModule mod_dir.c>
+    DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
+</IfModule>
+
+
+sudo /etc/init.d/apache2 restart
+systemctl status apache2
+apt-cache search php- | less
+apt-cache show package_name
+apt-cache show php-cli
+apt-get install php-cli
+
+echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+echo "Hello World!" > /var/www/html/hello.txt
+
+git clone https://github.com/schogini/customweb.git /var/www/html

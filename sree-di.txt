@@ -1,0 +1,1 @@
+aws ec2 describe-instances --region ap-south-1 --instance-ids i-0fee52fe50fdeaa1f
